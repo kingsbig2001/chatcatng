@@ -3,3 +3,5 @@ node_modules
 
 # config.json
 app/config/config.json
+
+chatCatDebug.log
