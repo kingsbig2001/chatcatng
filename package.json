@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production node ./app/server.js"
+    "start": "cross-env NODE_ENV=production nodemon server",
+    "start:dev": "cross-env NODE_ENV=development nodemon server"
   },
   "author": "Kingsley Ibeh",
   "license": "ISC",
@@ -27,5 +28,9 @@
     "socket.io": "^2.3.0",
     "socket.io-redis": "^5.2.0",
     "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.0",
+    "nodemon": "^2.0.2"
   }
 }

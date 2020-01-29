@@ -11,7 +11,9 @@
       'use strict';
 
       $(() => {
-        let socket = io('<%= host %>' + '/chatter');
+        let socket = io('<%= host %>' + '/chatter', {
+          transports: ['websocket'],
+        });
         let roomID = '<%= roomID %>';
         let user = '<%= user.fullName %>';
         let userPic = '<%= user.profilePic %>';
@@ -74,29 +76,32 @@
           let parsedData = JSON.parse(data);
           console.log(parsedData);
           updateFeed(parsedData.userPic, parsedData.message);
-        })
+        });
 
-        filePicker.on('click', function(evt){
-          cloudinary.openUploadWidget({
-            cloud_name: 'kingskings',
-            upload_preset: 'enz0upvw'
-          }, (error, result) => {
-            if(!error){
-              let tmp = '';
-              for(let img of result){
-                tmp += `<img src="${img.url}">`
+        filePicker.on('click', function(evt) {
+          cloudinary.openUploadWidget(
+            {
+              cloud_name: 'kingskings',
+              upload_preset: 'enz0upvw',
+            },
+            (error, result) => {
+              if (!error) {
+                let tmp = '';
+                for (let img of result) {
+                  tmp += `<img src="${img.url}">`;
+                }
+                updateFeed(userPic, tmp);
+
+                socket.emit('newMessage', {
+                  roomID,
+                  user,
+                  userPic,
+                  message: tmp,
+                });
               }
-              updateFeed(userPic, tmp);
-
-              socket.emit('newMessage', {
-                roomID,
-                user,
-                userPic,
-                message: tmp
-              })
             }
-          })
-        })
+          );
+        });
       });
     </script>
   </head>
