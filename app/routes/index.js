@@ -41,7 +41,10 @@ module.exports = () => {
         failureRedirect: '/',
       }),
       '/auth/twitter': passport.authenticate('twitter'),
-      '/auth/twitter/callback': passport.authenticate('twitter'),
+      '/auth/twitter/callback': passport.authenticate('twitter', {
+        successRedirect: '/rooms',
+        failureRedirect: '/'
+      }),
       '/logout': (req, res, next) => {
         req.logout();
         res.redirect('/');

@@ -5,9 +5,7 @@ const passport = require('passport');
 const chatCat = require('./app');
 const logger = require('./app/logger');
 
-process.env.PORT = 3000;
-
-app.set('port', process.env.PORT || 3200);
+app.set('port', process.env.PORT || 3000);
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
