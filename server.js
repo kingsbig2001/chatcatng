@@ -22,9 +22,7 @@ app.use(
     },
   })
 );
-
 app.use('/', chatCat.router);
-logger.info(process.env.PORT);
 
 chatCat.ioServer(app).listen(app.get('port'), () => {
 	logger.info(`ChatCAT Running on Port: ', ${app.get('port')}`);
