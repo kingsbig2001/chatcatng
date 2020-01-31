@@ -7,9 +7,6 @@ module.exports = () => {
   let routes = {
     get: {
       '/': (req, res, next) => {
-        console.log(req.headers);
-        console.log(req.get('host'));
-        console.log(req.get('origin'));
         res.render('login');
       },
       '/rooms': [
