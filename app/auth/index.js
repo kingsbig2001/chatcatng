@@ -4,6 +4,7 @@ const config = require('../config');
 const logger = require('../logger');
 const FacebookStrategy = require('passport-facebook').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const helper = require('../helpers');
 
 module.exports = () => {
@@ -37,5 +38,6 @@ module.exports = () => {
 
   passport.use(new FacebookStrategy(config.fb, authProcessor));
   passport.use(new TwitterStrategy(config.twitter, authProcessor));
+  passport.use(new GoogleStrategy(config.google, authProcessor));
 };
  
