@@ -23,7 +23,7 @@
         let filePicker = $('#uploadFile');
 
         socket.on('connect', () => {
-          socket.emit('join', {
+          socket.emit('join', { 
             roomID,
             user,
             userPic,

@@ -12,7 +12,7 @@
         let socket = io('<%= host %>' + '/roomslist', {
           transports: ['websocket'],
         });
-        let newRoomInput = $("input[name='roomName'");
+        let newRoomInput = $("input[name='roomName']");
 
         let renderChatRooms = chatRooms => {
           let roomsListDiv = $('#roomsListUL');

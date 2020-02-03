@@ -9,7 +9,8 @@ const logger = winston.createLogger({
       handleExceptions: true,
     }),
     new winston.transports.Console({
-        level: 'info'
+        level: 'debug',
+        handleExceptions: true,
     })
   ],
   exitOnError: false,

@@ -1,8 +1,17 @@
 /* login.html stylesheet */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	height: 80vh;
+	background-image: url('../img/caspar-camille-rubin-DrL-cwqD6tM-unsplash.jpg');
+}
 .container {
 	position:absolute;
 	width: 350px;
-	height: 210px;
+	height: 293px;
 	border:1px solid black;
 	top:0;
 	bottom:0;

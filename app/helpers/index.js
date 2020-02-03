@@ -25,7 +25,6 @@ let _registerRoutes = (routes, method) => {
   }
 };
 
-
 let route = routes => {
   _registerRoutes(routes);
   return router;
